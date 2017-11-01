@@ -1,0 +1,1 @@
+# TypeScript Definitions for Oracle Application Express JavaScript API

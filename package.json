@@ -1,0 +1,11 @@
+{
+  "name": "apex-js",
+  "version": "0.1.0",
+  "description": "TypedScript Declaration for Oracle Application Express JavaScript API",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adrian Png <adrian.png@fuzziebrain.com",
+  "license": "MIT",
+  "devDependencies": {}
+}
