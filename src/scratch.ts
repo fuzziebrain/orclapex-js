@@ -1,3 +1,8 @@
-let options = { request: "SUBMIT", showWait: true, set: { "P1": "1", "P2": 2 }, reloadOnSubmit: "a" };
+apex.page.submit("PROCESS");
 
-apex.page.confirm('helloworld', options);
+let selector: JQuery = $('a');
+let valid: boolean = apex.page.validate();
+
+let options: apex.page.SubmitOptions = { request: "SUBMIT", showWait: true, set: { "P1": "1", "P2": 2 }, reloadOnSubmit: "a" };
+
+apex.page.confirm("Are you sure?", options);
