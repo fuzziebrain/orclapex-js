@@ -12,6 +12,7 @@
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
+    "sourceMap": true,
     "baseUrl": "src/types",
     "typeRoots": [
       "node_modules/@types",
