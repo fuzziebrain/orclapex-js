@@ -2,7 +2,7 @@
   "rules": {
     "max-line-length": {
       "options": [
-        80
+        120
       ]
     },
     "new-parens": true,
@@ -24,7 +24,7 @@
   "jsRules": {
     "max-line-length": {
       "options": [
-        80
+        120
       ]
     }
   }

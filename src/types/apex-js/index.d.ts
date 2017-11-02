@@ -5,6 +5,37 @@
 /// <reference types="jquery"/>
 
 declare namespace apex {
+  let gPageContext$: any;
+
+  let JQuery: JQuery;
+
+  /**
+   * apex.confirm Signature 1 (alias for apex.page.confirm)
+   * @param {string} pMessage
+   * @param {string} pRequest
+   */
+  function confirm(pMessage: string, pRequest: string): void;
+
+  /**
+   * apex.confirm Signature 2 (alias for apex.page.confirm)
+   * @param {string} pMessage
+   * @param {page.SubmitOptions} pOptions
+   * @returns boolean | void
+   */
+  function confirm(pMessage: string, pOptions: page.SubmitOptions): boolean | void;
+
+  /**
+   * apex.page.submit Signature 1 (alias for apex.page.submit)
+   * @param {string} pRequest
+   */
+  function submit(pRequest: string): void;
+
+  /**
+   * apex.page.submit Signature 2 (alias for apex.page.submit)
+   * @param {SubmitOptions} pOptions
+   */
+  function submit(pOptions: page.SubmitOptions): void;
+
   namespace da {
     /**
      * apex.da.resume
@@ -85,5 +116,24 @@ declare namespace apex {
      * @param pExtraIsChanged
      */
     function warnOnUnsavedChanges(pMessage: string, pExtraIsChanged: Function): void;
+  }
+
+  namespace util {
+    /**
+     * Returns string pValue with any CSS meta-characters are escaped. Use this function when the value is used as in a
+     * CSS selector. Whenever possible constrain the value so that it cannot contain CSS meta-characters making it
+     * unnecessary to use this function.
+     *
+     * @param {string} pValue The string that may contain CSS meta-characters to be escaped.
+     * @returns {string}
+     */
+    function escapeCSS(pValue: string): string;
+  }
+
+  namespace widget {
+    /**
+     *
+     */
+    // function initPageItem(): void;
   }
 }
