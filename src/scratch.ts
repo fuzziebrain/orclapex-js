@@ -11,3 +11,8 @@ x.remove();
 
 apex.util.delayLinger.start("test", function() { console.log('hello'); });
 apex.util.delayLinger.finish("test", function() {});
+apex.region("test").focus();
+apex.region("myGridRegion").widget().interactiveGrid("getActions").invoke("add-row");
+let logLevel: number = apex.debug.LOG_LEVEL.OFF;
+apex.debug.error("hello", "world");
+let messageType: string = apex.message.TYPE.SUCCESS;

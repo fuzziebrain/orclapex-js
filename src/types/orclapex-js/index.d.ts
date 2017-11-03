@@ -36,6 +36,8 @@ declare namespace apex {
    */
   function submit(pOptions: page.SubmitOptions): void;
 
+  function region(pRegionId: string): region.Region;
+
   namespace da {
     /**
      * apex.da.resume
@@ -43,6 +45,33 @@ declare namespace apex {
      * @param {boolean} pErrorOccurred
      */
     function resume(pCallback: Function, pErrorOccurred: boolean): void;
+  }
+
+  namespace debug {
+    let LOG_LEVEL: {
+      OFF?: number;
+      ERROR?: number;
+      WARN?: number;
+      INFO?: number;
+      APP_TRACE?: number;
+      ENGINE_TRACE?: number;
+    };
+
+    function getLevel(): number;
+
+    function setLevel(pLevel: number): void;
+
+    function error(...message: any[]): void;
+
+    function info(...message: any[]): void;
+
+    function log(...message: any[]): void;
+
+    function message(pLevel: number, ...message: any[]): void;
+
+    function trace(...message: any[]): void;
+
+    function warn(...message: any[]): void;
   }
 
   namespace event {
@@ -54,6 +83,60 @@ declare namespace apex {
      * @return {boolean}
      */
     function trigger(pSelector: any, pEvent: string, pData?: Object): boolean;
+  }
+
+  namespace item {
+
+  }
+
+  namespace lang {
+    function addMessages(): void;
+    function clearMessages(): void;
+    function format(): void;
+    function formatMessage(): void;
+    function formatMessageNoEscape(): void;
+    function formatNoEscape(): void;
+    function getMessage(): void;
+  }
+
+  namespace message {
+    let TYPE: {
+      SUCCESS?: string;
+      ERROR?: string;
+    };
+
+    interface Error {
+      type?: string;
+      location?: string | Array<string>;
+      pageItem?: string;
+      message?: string;
+      unsafe?: boolean;
+    }
+
+    interface ThemeHookOptions {
+      beforeShow?: Function;
+      beforeHide?: Function;
+      closeNotificationSelector?: string;
+    }
+
+    function addVisibilityCheck(pFunction: Function): void;
+    function alert(pMessage: string, pCallback: Function): void;
+    function clearErrors(): void;
+    function confirm(pMessage: string, pCallback: Function): void;
+    function hidePageSuccess(): void;
+    function setThemeHooks(): void; // @todo
+    function showErrors(pErrors: Error | Array<Error>): void; // @todo
+    function showPageSuccess(pMessage: string): void;
+  }
+
+  namespace navigation {
+    function cancel(): void;
+    function close(): void;
+    function fireCloseHandler(): void;
+    function registerCloseHandler(): void;
+    function openInNewWindow(): void;
+    function popup(): void;
+    function redirect(): void;
   }
 
   namespace page {
@@ -116,6 +199,23 @@ declare namespace apex {
      * @param pExtraIsChanged
      */
     function warnOnUnsavedChanges(pMessage: string, pExtraIsChanged: Function): void;
+  }
+
+  namespace region {
+    interface Region {
+      type: string;
+      focus: Function;
+      refresh: Function;
+      widget(): widget.Widget;
+    }
+
+    function create(pRegionId: string, pRegionImpl: Region): void;
+
+    function destroy(pRegionId: string): void;
+
+    function isRegion(pRegionId: string): boolean;
+
+    function findClosest(pTarget: HTMLElement | string): Region;
   }
 
   namespace server {
@@ -327,6 +427,14 @@ declare namespace apex {
   }
 
   namespace widget {
+    interface Widget {
+      interactiveGrid(pName: string): InteractiveGrid
+    }
+
+    interface InteractiveGrid {
+      invoke(pAction: string): void
+    }
+
     /**
      *
      */
