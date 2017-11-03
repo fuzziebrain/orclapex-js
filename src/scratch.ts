@@ -16,3 +16,6 @@ apex.region("myGridRegion").widget().interactiveGrid("getActions").invoke("add-r
 let logLevel: number = apex.debug.LOG_LEVEL.OFF;
 apex.debug.error("hello", "world");
 let messageType: string = apex.message.TYPE.SUCCESS;
+apex.lang.addMessages({});
+apex.lang.format("hello %0", "john");
+let i = apex.item("P1_NUM").getValue();

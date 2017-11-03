@@ -36,6 +36,8 @@ declare namespace apex {
    */
   function submit(pOptions: page.SubmitOptions): void;
 
+  function item(pNd: HTMLElement | string): item.ItemObject;
+
   function region(pRegionId: string): region.Region;
 
   namespace da {
@@ -49,12 +51,12 @@ declare namespace apex {
 
   namespace debug {
     let LOG_LEVEL: {
-      OFF?: number;
-      ERROR?: number;
-      WARN?: number;
-      INFO?: number;
-      APP_TRACE?: number;
-      ENGINE_TRACE?: number;
+      OFF: number;
+      ERROR: number;
+      WARN: number;
+      INFO: number;
+      APP_TRACE: number;
+      ENGINE_TRACE: number;
     };
 
     function getLevel(): number;
@@ -86,23 +88,72 @@ declare namespace apex {
   }
 
   namespace item {
+    interface ItemObject {
+      id: string;
+      node: HTMLElement;
 
+      addValue(pValue: string): void;
+
+      disable(): void;
+
+      displayValueFor(pValue: string): string;
+
+      enable(): void;
+
+      getValidity(): ValidityState;
+
+      getValidationMessage(): string;
+
+      getValue(): string | string[];
+
+      hide(pHideRow?: boolean): void;
+
+      isChanged(): boolean;
+
+      isDisabled(): void;
+
+      isEmpty(): boolean;
+
+      setFocus(): void;
+
+      setStyle(pPropertyName: string, pPropertyValue: string): void;
+
+      setValue(pValue: string | string[], pDisplayValue?: string, pSuppressChangeEvent?: boolean): void;
+
+      show(pShowRow?: boolean): void;
+    }
+
+    interface ValidityState {
+
+    }
+
+    // @todo A ItemImpl instead of ItemObject?
+    function create(pName: HTMLElement | string, pItemImpl: ItemObject): void;
   }
 
   namespace lang {
-    function addMessages(): void;
+    interface Message {
+      [key: string]: string
+    }
+    function addMessages(pMessages: Message): void;
+
     function clearMessages(): void;
-    function format(): void;
-    function formatMessage(): void;
-    function formatMessageNoEscape(): void;
-    function formatNoEscape(): void;
-    function getMessage(): void;
+
+    function format(pPattern: string, ...replacementValue: any[]): string;
+
+    function formatMessage(pKey: string, ...replacementValue: any[]): string;
+
+    function formatMessageNoEscape(pKey: string, ...replacementValue: any[]): string;
+
+    function formatNoEscape(pPattern: string, ...replacementValue: any[]): string;
+
+    function getMessage(pKey: string): string;
   }
 
   namespace message {
     let TYPE: {
-      SUCCESS?: string;
-      ERROR?: string;
+      SUCCESS: string;
+      ERROR: string;
     };
 
     interface Error {
