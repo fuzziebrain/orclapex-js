@@ -18,6 +18,6 @@
   },
   "files": [
     "index.d.ts",
-    "apex-js-tests.ts"
+    "orclapex-js-tests.ts"
   ]
 }

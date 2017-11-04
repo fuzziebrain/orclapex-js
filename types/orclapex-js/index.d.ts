@@ -536,36 +536,232 @@ declare namespace apex {
 }
 
 // Non-namespaced APIs
+/**
+ *
+ * @param {HTMLElement | string} pNd
+ * @returns {HTMLElement}
+ */
 declare function $x(pNd: HTMLElement | string): HTMLElement;
 
+/**
+ *
+ * @param {HTMLElement | string} pNd
+ * @returns {string | number}
+ */
 declare function $v(pNd: HTMLElement | string): string | number;
 
-declare function $v2(): void;
-declare function $s(): void;
-declare function $u_Narray(): void;
-declare function $u_Carray(): void;
-declare function $nvl(): void;
-declare function $x_Style(): void;
-declare function $x_Hide(): void;
-declare function $x_Show(): void;
-declare function $x_Toggle(): void;
-declare function $x_Remove(): void;
-declare function $x_Value(): void;
-declare function $x_UpTill(): void;
-declare function $x_ItemRow(): void;
-declare function $x_HideItemRow(): void;
-declare function $x_ShowItemRow(): void;
-declare function $x_ToggleItemRow(): void;
-declare function $x_HideAllExcept(): void;
-declare function $x_HideSiblings(): void;
-declare function $x_ShowSiblings(): void;
-declare function $x_Class(): void;
-declare function $x_SetSiblingsClass(): void;
-declare function $x_ByClass(): void;
-declare function $x_ShowAllByClass(): void;
-declare function $x_ShowChildren(): void;
-declare function $x_HideChildren(): void;
-declare function $x_disableItem(): void;
+/**
+ *
+ * @param {HTMLElement | string} pNd
+ * @returns {string | string[]}
+ */
+declare function $v2(pNd: HTMLElement | string): string | string[];
+
+/**
+ *
+ * @param {HTMLElement | string }pNd
+ * @param { string | string[]} pValue
+ * @param { string } pDisplayValue
+ * @param { boolean } pSuppressChangeEvent
+ */
+declare function $s(
+  pNd: HTMLElement | string,
+  pValue: string | string[],
+  pDisplayValue:  string,
+  pSuppressChangeEvent: boolean
+): void;
+
+/**
+ *
+ * @param { pItem: HTMLElement | string | string[] } pItem
+ * @returns { HTMLElement | string | string[] | number[] }
+ */
+declare function $u_Narray(pItem: HTMLElement | string | string[]): HTMLElement | string | string[] | number[];
+
+/**
+ *
+ * @param { pItem: HTMLElement | string | string[] } pItem
+ * @returns { HTMLElement | string | string[] | number[] }
+ */
+declare function $u_Carray(pItem: HTMLElement | string | string[]): HTMLElement | string | string[] | number[];
+
+/**
+ *
+ * @param { string | string[] } pTest
+ * @param { string | string[] } pDefault
+ * @returns { string | string[] }
+ */
+declare function $nvl(pTest: string | string[], pDefault: string | string[]): string | string[];
+
+/**
+ *
+ * @param { HTMLElement | string | HTMLElement[] } pNd
+ * @param { string } pStyle
+ * @param { string } pString
+ * @returns { HTMLElement | HTMLElement[] }
+ */
+declare function $x_Style(
+  pNd: HTMLElement | string | HTMLElement[],
+  pStyle: string,
+  pString: string
+): HTMLElement | HTMLElement[];
+
+/**
+ *
+ * @param { HTMLElement | string | HTMLElement[] } pNd
+ * @returns { HTMLElement | HTMLElement }
+ */
+declare function $x_Hide(pNd: HTMLElement | string | HTMLElement[]): HTMLElement | HTMLElement[];
+
+/**
+ *
+ * @param { HTMLElement | string | HTMLElement[] } pNd
+ * @returns { HTMLElement | HTMLElement }
+ */
+declare function $x_Show(pNd: HTMLElement | string | HTMLElement[]): HTMLElement | HTMLElement[];
+
+/**
+ *
+ * @param { HTMLElement | string | HTMLElement[] } pNd
+ * @returns { HTMLElement | HTMLElement }
+ */
+declare function $x_Toggle(pNd: HTMLElement | string | HTMLElement[]): HTMLElement | HTMLElement[];
+
+/**
+ *
+ * @param { HTMLElement | string | HTMLElement[] } pNd
+ * @returns { HTMLElement | HTMLElement }
+ */
+declare function $x_Remove(pNd: HTMLElement | string | HTMLElement[]): HTMLElement | HTMLElement[];
+
+/**
+ *
+ * @param { HTMLElement | string | HTMLElement[] } pNd
+ * @param { HTMLElement | HTMLElement } pValue
+ */
+declare function $x_Value(pNd: HTMLElement | string | HTMLElement[], pValue: string): void;
+
+/**
+ *
+ * @param { HTMLElement | string } pNd
+ * @param { string } pToTag
+ * @param { string } pToClass
+ */
+declare function $x_UpTill(pNd: HTMLElement | string, pToTag: string, pToClass?: string): HTMLElement | boolean;
+
+/**
+ *
+ * @param { HTMLElement | string | HTMLElement[] } pNd
+ * @param { string } pFunc
+ */
+declare function $x_ItemRow(pNd: HTMLElement | string | HTMLElement[], pFunc: string): void;
+
+/**
+ *
+ * @param { HTMLElement | string | HTMLElement[] } pNd
+ */
+declare function $x_HideItemRow(pNd: HTMLElement |  string | HTMLElement[]): void;
+
+/**
+ *
+ * @param { HTMLElement | string | HTMLElement[] } pNd
+ */
+declare function $x_ShowItemRow(pNd: HTMLElement | string | HTMLElement[]): void;
+
+/**
+ *
+ * @param { HTMLElement | string | HTMLElement[] } pNd
+ */
+declare function $x_ToggleItemRow(pNd: HTMLElement | string | HTMLElement[]): void;
+
+/**
+ *
+ * @param { HTMLElement | string | HTMLElement[] } pNd
+ * @param { HTMLElement | string | string[] } pNdArray
+ */
+declare function $x_HideAllExcept(
+  pNd: HTMLElement | string | HTMLElement[],
+  pNdArray: HTMLElement |  string | string[]
+): void;
+
+/**
+ *
+ * @param { HTMLElement | string } pNd
+ * @returns { HTMLElement }
+ */
+declare function $x_HideSiblings(pNd: HTMLElement | string): HTMLElement;
+
+/**
+ *
+ * @param { HTMLElement | string } pNd
+ * @returns { HTMLElement }
+ */
+declare function $x_ShowSiblings(pNd: HTMLElement | string): HTMLElement;
+
+/**
+ *
+ * @param { HTMLElement | string | HTMLElement[] } pNd
+ * @param { string } pClass
+ */
+declare function $x_Class(pNd: HTMLElement | string | HTMLElement[], pClass: string): void;
+
+/**
+ *
+ * @param { HTMLElement | string } pNd
+ * @param { string } pClass
+ * @param { string } pThisClass
+ * @returns { HTMLElement | boolean }
+ */
+declare function $x_SetSiblingsClass(
+  pNd: HTMLElement | string,
+  pClass: string,
+  pThisClass: string
+): HTMLElement | boolean;
+
+/**
+ *
+ * @param { string } pClass
+ * @param { HTMLElement | string } pNd
+ * @param { string } pTag
+ * @returns { HTMLElement[] }
+ */
+declare function $x_ByClass(
+  pClass: string,
+  pNd: HTMLElement | string,
+  pTag: string
+): HTMLElement[];
+
+/**
+ *
+ * @param { HTMLElement | string } pNd
+ * @param { string } pClass
+ * @param { string } pTag
+ */
+declare function $x_ShowAllByClass(
+  pNd: HTMLElement | string,
+  pClass: string,
+  pTag: string
+): void;
+
+/**
+ *
+ * @param { HTMLElement | string } pNd
+ */
+declare function $x_ShowChildren(pNd: HTMLElement | string): void;
+
+/**
+ *
+ * @param { HTMLElement | string } pNd
+ */
+declare function $x_HideChildren(pNd: HTMLElement | string): void;
+
+/**
+ *
+ * @param { HTMLElement | string | HTMLElement[] } pNd
+ * @param { boolean } a
+ */
+declare function $x_disableItem(pNd: HTMLElement | string | HTMLElement[], a: boolean): void;
+
 declare function $f_get_emptys(): void;
 declare function $v_Array(): void;
 declare function $f_ReturnChecked(): void;

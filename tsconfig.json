@@ -1,7 +1,7 @@
 {
   "compileOnSave": true,
   "exclude": [
-    "src/types"
+    "types"
   ],
   "compilerOptions": {
     "module": "commonjs",
@@ -13,10 +13,10 @@
     "noImplicitThis": true,
     "strictNullChecks": true,
     "sourceMap": true,
-    "baseUrl": "src/types",
+    "baseUrl": "types",
     "typeRoots": [
       "node_modules/@types",
-      "src/types"
+      "types"
     ],
     "outDir": "build"
   }
