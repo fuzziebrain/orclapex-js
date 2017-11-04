@@ -36,8 +36,24 @@ declare namespace apex {
    */
   function submit(pOptions: page.SubmitOptions): void;
 
+  /**
+   * This API returns an Application Express item object, which can then be used to access item related functions and
+   * properties.
+   *
+   * @param {HTMLElement} pNd - Application Express item name or DOM node. This parameter can refer to either a page
+   *                            item or column item.
+   */
   function item(pNd: HTMLElement | string): item.ItemObject;
 
+  /**
+   * This API returns an Application Express region object for the given region id. The returned region object can then
+   * be used to access region related functions and properties.
+   *
+   * @param {string} pRegionId - Region id or region static id. It is a best practice to give a region a Static ID if it
+   *                             is going to be used from JavaScript otherwise an internally generated id is used. The
+   *                             region id is substituted in the region template using the #REGION_STATIC_ID# string.
+   *                             The region id can be found by viewing the page source in the browser.
+   */
   function region(pRegionId: string): region.Region;
 
   namespace da {
@@ -49,13 +65,39 @@ declare namespace apex {
     function resume(pCallback: Function, pErrorOccurred: boolean): void;
   }
 
+  /**
+   * This namespace stores all debug functions of Oracle Application Express.
+   */
   namespace debug {
     let LOG_LEVEL: {
+      /**
+       * Logging is off. Value: 0
+       */
       OFF: number;
+
+      /**
+       * Error logging level. Value: 1
+       */
       ERROR: number;
+
+      /**
+       * Warning logging level. Value: 2
+       */
       WARN: number;
+
+      /**
+       * Information logging level. Value: 4
+       */
       INFO: number;
+
+      /**
+       * Application tracing logging level. Value: 6
+       */
       APP_TRACE: number;
+
+      /**
+       * Engine tracing logging level. Value: 9
+       */
       ENGINE_TRACE: number;
     };
 
@@ -492,3 +534,74 @@ declare namespace apex {
     // function initPageItem(): void;
   }
 }
+
+// Non-namespaced APIs
+declare function $x(pNd: HTMLElement | string): HTMLElement;
+
+declare function $v(pNd: HTMLElement | string): string | number;
+
+declare function $v2(): void;
+declare function $s(): void;
+declare function $u_Narray(): void;
+declare function $u_Carray(): void;
+declare function $nvl(): void;
+declare function $x_Style(): void;
+declare function $x_Hide(): void;
+declare function $x_Show(): void;
+declare function $x_Toggle(): void;
+declare function $x_Remove(): void;
+declare function $x_Value(): void;
+declare function $x_UpTill(): void;
+declare function $x_ItemRow(): void;
+declare function $x_HideItemRow(): void;
+declare function $x_ShowItemRow(): void;
+declare function $x_ToggleItemRow(): void;
+declare function $x_HideAllExcept(): void;
+declare function $x_HideSiblings(): void;
+declare function $x_ShowSiblings(): void;
+declare function $x_Class(): void;
+declare function $x_SetSiblingsClass(): void;
+declare function $x_ByClass(): void;
+declare function $x_ShowAllByClass(): void;
+declare function $x_ShowChildren(): void;
+declare function $x_HideChildren(): void;
+declare function $x_disableItem(): void;
+declare function $f_get_emptys(): void;
+declare function $v_Array(): void;
+declare function $f_ReturnChecked(): void;
+declare function $d_ClearAndHide(): void;
+declare function $f_SelectedOptions(): void;
+declare function $f_SelectValue(): void;
+declare function $u_ArrayToString(): void;
+declare function $x_CheckImageSrc(): void;
+declare function $v_CheckValueAgainst(): void;
+declare function $f_Hide_On_Value_Item(): void;
+declare function $f_Show_On_Value_Item(): void;
+declare function $f_Hide_On_Value_Item_Row(): void;
+declare function $f_Show_On_Value_Item_Row(): void;
+declare function $f_DisableOnValue(): void;
+declare function $x_ClassByClass(): void;
+declare function $f_ValuesToArray(): void;
+declare function $x_FormItems(): void;
+declare function $f_CheckAll(): void;
+declare function $f_CheckFirstColumn(): void;
+declare function $x_ToggleWithImage(): void;
+declare function $x_SwitchImageSrc(): void;
+declare function $x_CheckImageSrc(): void;
+declare function $u_SubString(): void;
+declare function html_RemoveAllChildren(): void;
+declare function html_SetSelectValue(): void;
+declare function addLoadEvent(): void;
+declare function $f_Swap(): void;
+declare function $f_SetValueSequence(): void;
+declare function $dom_AddTag(): void;
+declare function $tr_AddTD(): void;
+declare function $tr_AddTH(): void;
+declare function $dom_AddInput(): void;
+declare function $dom_MakeParent(): void;
+declare function $x_RowHighlight(): void;
+declare function $x_RowHighlightOff(): void;
+declare function $v_Upper(): void;
+declare function $d_Find(): void;
+declare function $f_First_field(): void;
+// END - Non-namespaced APIs
