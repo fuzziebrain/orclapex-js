@@ -19,3 +19,4 @@ let messageType: string = apex.message.TYPE.SUCCESS;
 apex.lang.addMessages({});
 apex.lang.format("hello %0", "john");
 let i = apex.item("P1_ITEM").getValue();
+let mystring = $u_ArrayToString([1, "2"], ":");

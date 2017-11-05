@@ -1,13 +1,13 @@
-// Type definitions for apex-js 5.1
-// Project: Type Definitions for Oracle Application Express JavaScript APIs
+// Type definitions for orclapex-js 5.1
+// Project: Type Definitions for Oracle Application Express JavaScript APIs (version 5.1)
 // Definitions by: Adrian Png <https://github.com/fuzziebrain/>
 
 /// <reference types="jquery"/>
 
 declare namespace apex {
-  let gPageContext$: any;
+  const gPageContext$: any;
 
-  let JQuery: JQuery;
+  const JQuery: JQuery;
 
   /**
    * apex.confirm Signature 1 (alias for apex.page.confirm)
@@ -69,37 +69,37 @@ declare namespace apex {
    * This namespace stores all debug functions of Oracle Application Express.
    */
   namespace debug {
-    let LOG_LEVEL: {
+    const enum LOG_LEVEL {
       /**
        * Logging is off. Value: 0
        */
-      OFF: number;
+      OFF = 0,
 
       /**
        * Error logging level. Value: 1
        */
-      ERROR: number;
+      ERROR = 1,
 
       /**
        * Warning logging level. Value: 2
        */
-      WARN: number;
+      WARN = 2,
 
       /**
        * Information logging level. Value: 4
        */
-      INFO: number;
+      INFO = 4,
 
       /**
        * Application tracing logging level. Value: 6
        */
-      APP_TRACE: number;
+      APP_TRACE = 6,
 
       /**
        * Engine tracing logging level. Value: 9
        */
-      ENGINE_TRACE: number;
-    };
+      ENGINE_TRACE = 9
+    }
 
     function getLevel(): number;
 
@@ -193,10 +193,17 @@ declare namespace apex {
   }
 
   namespace message {
-    let TYPE: {
-      SUCCESS: string;
-      ERROR: string;
-    };
+    const enum TYPE {
+      /**
+       * Identifies a success message
+       */
+      SUCCESS = "success",
+
+      /**
+       * Identifies an error message
+       */
+      ERROR = "error"
+    }
 
     interface Error {
       type?: string;
@@ -762,42 +769,341 @@ declare function $x_HideChildren(pNd: HTMLElement | string): void;
  */
 declare function $x_disableItem(pNd: HTMLElement | string | HTMLElement[], a: boolean): void;
 
-declare function $f_get_emptys(): void;
-declare function $v_Array(): void;
-declare function $f_ReturnChecked(): void;
-declare function $d_ClearAndHide(): void;
-declare function $f_SelectedOptions(): void;
-declare function $f_SelectValue(): void;
-declare function $u_ArrayToString(): void;
-declare function $x_CheckImageSrc(): void;
-declare function $v_CheckValueAgainst(): void;
-declare function $f_Hide_On_Value_Item(): void;
-declare function $f_Show_On_Value_Item(): void;
-declare function $f_Hide_On_Value_Item_Row(): void;
-declare function $f_Show_On_Value_Item_Row(): void;
-declare function $f_DisableOnValue(): void;
-declare function $x_ClassByClass(): void;
-declare function $f_ValuesToArray(): void;
-declare function $x_FormItems(): void;
-declare function $f_CheckAll(): void;
-declare function $f_CheckFirstColumn(): void;
-declare function $x_ToggleWithImage(): void;
-declare function $x_SwitchImageSrc(): void;
-declare function $x_CheckImageSrc(): void;
-declare function $u_SubString(): void;
-declare function html_RemoveAllChildren(): void;
-declare function html_SetSelectValue(): void;
-declare function addLoadEvent(): void;
-declare function $f_Swap(): void;
-declare function $f_SetValueSequence(): void;
-declare function $dom_AddTag(): void;
-declare function $tr_AddTD(): void;
-declare function $tr_AddTH(): void;
-declare function $dom_AddInput(): void;
-declare function $dom_MakeParent(): void;
-declare function $x_RowHighlight(): void;
-declare function $x_RowHighlightOff(): void;
-declare function $v_Upper(): void;
-declare function $d_Find(): void;
-declare function $f_First_field(): void;
+/**
+ *
+ * @param { HTMLElement | string | HTMLElement[] } pNd
+ * @param { string } pclassFail
+ * @param { string } pClass
+ */
+declare function $f_get_emptys(
+  pNd: HTMLElement | string | HTMLElement[],
+  pclassFail: string,
+  pClass: string
+
+): boolean | HTMLElement[];
+
+/**
+ *
+ * @param { HTMLElement | stirng } pId
+ * @returns { string[] | number[] }
+ */
+declare function $v_Array(pId: HTMLElement | string): string[] | number[];
+
+/**
+ *
+ * @param { HTMLElement | stirng } pId
+ * @returns { string[] | number[] }
+ */
+declare function $f_ReturnChecked(pId: HTMLElement | string): string[] | number[];
+
+/**
+ *
+ * @param { HTMLElement | string | HTMLElement[] } pNd
+ */
+declare function $d_ClearAndHide(pNd: HTMLElement | string | HTMLElement[]): void;
+
+/**
+ *
+ * @param { HTMLElement | string } pNd
+ * @returns { HTMLElement[] }
+ */
+declare function $f_SelectedOptions(pNd: HTMLElement | string): HTMLElement[];
+
+/**
+ *
+ * @param { HTMLElement | string } pNd
+ * @returns { HTMLElement[] | string }
+ */
+declare function $f_SelectValue(pNd: HTMLElement | string): HTMLElement[] | string;
+
+/**
+ *
+ * @param { (string | number)[] } pArray
+ * @param { string } pDelim
+ * @returns string
+ */
+declare function $u_ArrayToString(pArray: (string | number)[], pDelim: string): string;
+
+/**
+ *
+ * @param { HTMLElement | string } pId
+ * @param { string } pSearch
+ * @returns { boolean }
+ */
+declare function $x_CheckImageSrc(pId: HTMLElement | string, pSearch: string): boolean;
+
+/**
+ *
+ * @param { HTMLElement | string } pThis
+ * @param { number | string | (number | string)[] } pValue
+ * @returns { boolean }
+ */
+declare function $v_CheckValueAgainst(
+  pThis: HTMLElement | string,
+  pValue: number | string | (number | string)[]
+): boolean;
+
+/**
+ *
+ * @param { HTMLElement | string } pThis
+ * @param { HTMLElement | string | HTMLElement[] } pThat
+ * @param { number | string | (number | string)[] } pValue
+ * @returns { boolean }
+ */
+declare function $f_Hide_On_Value_Item(
+  pThis: HTMLElement | string,
+  pThat: HTMLElement | string | HTMLElement[],
+  pValue: number | string | (number | string)[]
+): boolean;
+
+/**
+ *
+ * @param { HTMLElement | string } pThis
+ * @param { HTMLElement | string | HTMLElement[] } pThat
+ * @param { number | string | (number | string)[] } pValue
+ * @returns { boolean }
+ */
+declare function $f_Show_On_Value_Item(
+  pThis: HTMLElement | string,
+  pThat: HTMLElement | string | HTMLElement[],
+  pValue: number | string | (number | string)[]
+): boolean;
+
+/**
+ *
+ * @param { HTMLElement | string } pThis
+ * @param { HTMLElement | string | HTMLElement[] } pThat
+ * @param { number | string | (number | string)[] } pValue
+ * @returns { boolean }
+ */
+declare function $f_Hide_On_Value_Item_Row(
+  pThis: HTMLElement | string,
+  pThat: HTMLElement | string | HTMLElement[],
+  pValue: number | string | (number | string)[]
+): boolean;
+
+/**
+ *
+ * @param { HTMLElement | string } pThis
+ * @param { HTMLElement | string | HTMLElement[] } pThat
+ * @param { number | string | (number | string)[] } pValue
+ * @returns { boolean }
+ */
+declare function $f_Show_On_Value_Item_Row(
+  pThis: HTMLElement | string,
+  pThat: HTMLElement | string | HTMLElement[],
+  pValue: number | string | (number | string)[]
+): boolean;
+
+/**
+ *
+ * @param { HTMLElement | string } pThis
+ * @param { number | string | (number | string)[] } pValue
+ * @param { HTMLElement | string | HTMLElement[] } pThat
+ * @returns { boolean }
+ */
+declare function $f_DisableOnValue(
+  pThis: HTMLElement | string,
+  pValue: number | string | (number | string)[],
+  pThat: HTMLElement | string | HTMLElement[]
+): boolean;
+
+/**
+ *
+ * @param { HTMLElement | string } pNd
+ * @param { string } pClass
+ * @param { string } pTag
+ * @param { string } pClass2
+ * @returns { HTMLElement | HTMLElement[] }
+ */
+declare function $x_ClassByClass(
+  pNd: HTMLElement | string,
+  pClass: string,
+  pTag: string,
+  pClass2: string
+): HTMLElement | HTMLElement[];
+
+/**
+ *
+ * @param { HTMLElement | string } pThis
+ * @param { string } pClass
+ * @param { string } pTag
+ */
+declare function $f_ValuesToArray(pThis: HTMLElement | string, pClass: string, pTag: string): void;
+
+/**
+ *
+ * @param { HTMLElement | string } pNd
+ * @param { HTMLElement } pType
+ * @returns { HTMLElement[] }
+ */
+declare function $x_FormItems(pNd: HTMLElement | string, pType: string): HTMLElement[];
+
+/**
+ *
+ * @param { HTMLElement | string } pThis
+ * @param { boolean } pCheck
+ * @param { HTMLElement[] } pArray
+ */
+declare function $f_CheckAll(pThis: HTMLElement | string, pCheck: boolean, pArray: HTMLElement[]): void;
+
+/**
+ *
+ * @param { HTMLElement | string } pNd
+ * @returns { HTMLElement[] }
+ */
+declare function $f_CheckFirstColumn(pNd: HTMLElement | string): HTMLElement[];
+
+/**
+ *
+ * @param { HTMLElement | string } pThis
+ * @param { HTMLElement | string | HTMLElement[] } pNd
+ * @returns { HTMLElement }
+ */
+declare function $x_ToggleWithImage(
+  pThis: HTMLElement | string,
+  pNd: HTMLElement | string | HTMLElement[]
+): HTMLElement;
+
+/**
+ *
+ * @param { HTMLElement | string } pNd
+ * @param { string } pSearch
+ * @param { string } pReplace
+ * @returns { HTMLElement | boolean }
+ */
+declare function $x_SwitchImageSrc(pNd: HTMLElement | string, pSearch: string, pReplace: string): HTMLElement | boolean;
+
+/**
+ *
+ * @param { HTMLElement | string } pNd
+ * @param { string } pSearch
+ * @returns { boolean }
+ */
+declare function $x_CheckImageSrc(pNd: HTMLElement | string, pSearch: string): boolean;
+
+/**
+ *
+ * @param { string } pText
+ * @param { string } pMatch
+ * @returns { boolean }
+ */
+declare function $u_SubString(pText: string, pMatch: string): boolean;
+
+/**
+ *
+ * @param { HTMLElement | string } pNd
+ */
+declare function html_RemoveAllChildren(pNd: HTMLElement | string): void;
+
+/**
+ *
+ * @param { HTMLElement | string } pId
+ * @param { string } pValue
+ */
+declare function html_SetSelectValue(pId: HTMLElement | string, pValue: string): void;
+
+/**
+ *
+ * @param { Function } pFunction
+ */
+declare function addLoadEvent(pFunction: Function): void;
+
+/**
+ *
+ * @param { HTMLElement | string } pThis
+ * @param { HTMLElement | string } pThat
+ */
+declare function $f_Swap(pThis: HTMLElement | string, pThat: HTMLElement | string): void;
+
+/**
+ *
+ * @param { HTMLElement[] } pArray
+ * @param { number } pMultiple
+ */
+declare function $f_SetValueSequence(pArray: HTMLElement[], pMultiple: number): void;
+
+/**
+ *
+ * @param { HTMLElement | string } pThis
+ * @param { string } pTag
+ * @param { string } pText
+ * @returns { HTMLElement }
+ */
+declare function $dom_AddTag(pThis: HTMLElement | string, pTag: string, pText: string): HTMLElement;
+
+/**
+ *
+ * @param { HTMLElement | string } pThis
+ * @param { string } pText
+ * @returns { HTMLElement }
+ */
+declare function $tr_AddTD(pThis: HTMLElement | string, pText: string): HTMLElement;
+
+/**
+ *
+ * @param { HTMLElement | string } pThis
+ * @param { string } pText
+ * @returns { HTMLElement }
+ */
+declare function $tr_AddTH(pThis: HTMLElement | string, pText: string): HTMLElement;
+
+/**
+ *
+ * @param { HTMLElement | string } pThis
+ * @param { string } pType
+ * @param { string } pId
+ * @param { string } pName
+ * @param { string } pValue
+ * @returns { HTMLElement }
+ */
+declare function $dom_AddInput(
+  pThis: HTMLElement | string,
+  pType: string,
+  pId: string,
+  pName: string,
+  pValue: string
+): HTMLElement;
+
+/**
+ *
+ * @param { HTMLElement | string } p_This
+ * @param { HTMLElement | string } p_Parent
+ */
+declare function $dom_MakeParent(p_This: HTMLElement | string, p_Parent: HTMLElement | string): void;
+
+/**
+ *
+ * @param { HTMLElement | string } pThis
+ * @param { string } pColor
+ */
+declare function $x_RowHighlight(pThis: HTMLElement | string, pColor: string): void;
+
+/**
+ *
+ * @param { HTMLElement | string } pThis
+ */
+declare function $x_RowHighlightOff(pThis: HTMLElement | string): void;
+
+/**
+ *
+ * @param { HTMLElement | string } pNd
+ */
+declare function $v_Upper(pNd: HTMLElement | string): void;
+
+/**
+ *
+ * @param { HTMLElement | string } pThis
+ * @param { string } pString
+ * @param { string } pTags
+ * @param { string } pClass
+ */
+declare function $d_Find(pThis: HTMLElement | string, pString: string, pTags: string, pClass: string): void;
+
+/**
+ *
+ * @param { HTMLElement | string } pNd
+ * @returns { boolean }
+ */
+declare function $f_First_field(pNd: HTMLElement | string): boolean;
 // END - Non-namespaced APIs
