@@ -2,6 +2,7 @@
   "name": "orclapex-js",
   "version": "0.1.0",
   "description": "TypeScript Declaration for Oracle Application Express JavaScript API",
+  "main": "",
   "types": "./types/orclapex-js",
   "author": "Adrian Png <adrian.png@fuzziebrain.com",
   "license": "MIT",

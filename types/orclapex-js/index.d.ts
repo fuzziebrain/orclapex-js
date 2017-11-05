@@ -69,36 +69,37 @@ declare namespace apex {
    * This namespace stores all debug functions of Oracle Application Express.
    */
   namespace debug {
-    const enum LOG_LEVEL {
+    // We do not represent LOG_LEVEL as an enum since these values are defined in the JS file.
+    let LOG_LEVEL: {
       /**
        * Logging is off. Value: 0
        */
-      OFF = 0,
+      OFF: number;
 
       /**
        * Error logging level. Value: 1
        */
-      ERROR = 1,
+      ERROR: number;
 
       /**
        * Warning logging level. Value: 2
        */
-      WARN = 2,
+      WARN: number;
 
       /**
        * Information logging level. Value: 4
        */
-      INFO = 4,
+      INFO: number;
 
       /**
        * Application tracing logging level. Value: 6
        */
-      APP_TRACE = 6,
+      APP_TRACE: number;
 
       /**
        * Engine tracing logging level. Value: 9
        */
-      ENGINE_TRACE = 9
+      ENGINE_TRACE: number;
     }
 
     function getLevel(): number;
@@ -193,16 +194,17 @@ declare namespace apex {
   }
 
   namespace message {
-    const enum TYPE {
+    // We do not represent LOG_LEVEL as an enum since these values are defined in the JS file.
+    let TYPE: {
       /**
        * Identifies a success message
        */
-      SUCCESS = "success",
+      SUCCESS: string
 
       /**
        * Identifies an error message
        */
-      ERROR = "error"
+      ERROR: string
     }
 
     interface Error {
