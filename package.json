@@ -2,7 +2,6 @@
   "name": "orclapex-js",
   "version": "0.1.0",
   "description": "TypedScript Declaration for Oracle Application Express JavaScript API",
-  "types": "./types/orclapex-js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
