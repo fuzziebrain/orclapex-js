@@ -14,7 +14,7 @@ The definitions in this project are manually curated based on Oracle's official 
 
 ---
 ### IMPORTANT!
-Please be mindful that this project is a **work-in-progress**. Please feel free to post issues and/or recommendations. If you would like to contribute to the project, please contact the [project owner](https://twitter.com/fuzziebrain).
+Please be mindful that this project is a **work-in progress**. Please feel free to post issues and/or recommendations. If you would like to contribute to the project, please contact the [project owner](https://twitter.com/fuzziebrain).
 
 ---
 
@@ -54,7 +54,7 @@ $ npm install --save-dev https://github.com/fuzziebrain/orclapex-js.git
 /// <reference types="orclapex-js" />
 ```
 
-For those who are not ready to start with TypeScript, Visual Studio Code provides type-checking and intellisense support. Add the following two lines of code:
+For those who are not ready to start with TypeScript, Visual Studio Code provides type-checking and intellisense support for JavaScript. Add the following two lines of code:
 ```javascript
 //@ts-check
 /// <reference types="orclapex-js" />
@@ -64,3 +64,24 @@ For those who are not ready to start with TypeScript, Visual Studio Code provide
 [APEX Nitro](https://github.com/OraOpenSource/apex-nitro) version 4 and later supports TypeScript. Instructions to set up the project configuration forthcoming.
 
 ![Configure APEX Nitro support for TypeScript](./docs/apex-nitro-ts-configuration.png)
+
+## Project Status
+| API / Namespace / Functions / Objects | Implementation Status | Code Hints (JSDoc) | Test Code | Validation |
+| - | - | - | - | - |
+| apex namespace | In progress | In progress | Not started | Not started |
+| apex.da namespace | Done | Done | Not started | Not started |
+| apex.debug namespace | Done | Done | Not started | Not started |
+| apex.event namespace | In progress | Not started | Not started | Not started |
+| apex.item | In progress | Not started | Not started | Not started |
+| apex.lang namespace | In progress | Not started | Not started | Not started |
+| apex.message namespace | In progress | Not started | Not started | Not started |
+| apex.navigation namespace | In progress | Not started | Not started | Not started |
+| apex.page namespace | In progress | Not started | Not started | Not started |
+| apex.region | In progress | Not started | Not started | Not started |
+| apex.server namespace | In progress | Not started | Not started | Not started |
+| apex.storage namespace | In progress | Not started | Not started | Not started |
+| apex.util namespace | In progress | In progress | Not started | Not started |
+| apex.widget namespace | In progress | In progress | Not started | Not started |
+| Events | Not started | Not started | Not started | Not started |
+| Non-namespace JavaScript APIs | In progress | In progress | Not started | Not started |
+| Legacy JavaScript APIs | Not implementing | - | - | - |

@@ -56,11 +56,22 @@ declare namespace apex {
    */
   function region(pRegionId: string): region.Region;
 
+  /**
+   * This namespace holds all Dynamic Action functions in Oracle Application Express.
+   */
   namespace da {
     /**
-     * apex.da.resume
-     * @param {Function} pCallback
-     * @param {boolean} pErrorOccurred
+     * This function resumes execution of a Dynamic Action. Execution of a Dynamic Action can be paused, if the action's
+     * `Wait for Result` attribute is checked. The `Wait for Result` is a Dynamic Action plug-in standard attribute
+     * designed for use with Ajax based Dynamic Actions. If a plug-in exposes this attribute, it needs to resume
+     * execution by calling this function in the relevant place in the plug-in JavaScript code, otherwise, your action
+     * breaks execution of Dynamic Actions.
+     *
+     * @param {Function} pCallback - This is a required parameter that references a callback function available from the
+     *                               `this.resume` Callback property
+     * @param {boolean} pErrorOccurred - This is a required parameter that indicates to the framework whether an error
+     *                                   has occurred. If an error has occurred and the action's Stop Execution on Error
+     *                                   attribute is checked, execution of the Dynamic Action is stopped.
      */
     function resume(pCallback: Function, pErrorOccurred: boolean): void;
   }
@@ -109,18 +120,63 @@ declare namespace apex {
      */
     function getLevel(): number;
 
+    /**
+     * Method that sets the debug log level. Log messages at or below the specified level are written to the console
+     * log. It is rarely necessary to call this function because the debug log level is synchronized with the hidden
+     * item `#pdebug` that comes from the server.
+     *
+     * @param pLevel - A number from 1 to 9 where level 1 is most important and level 9 is least important. Can be one
+     *                 of the `LOG_LEVEL` constants. Any other value such as 0 will turn off debug logging.
+     */
     function setLevel(pLevel: number): void;
 
+    /**
+     * Log an error message. The error function always writes the error regardless of the log level from the server or
+     * set with `apex.debug.setLevel`. Messages are written using the browsers built-in console logging if available. If
+     * supported `console.trace` is called. Older browsers may not support the console object or all of its features.
+     *
+     * @param message - Any number of parameters logged to the console.
+     */
     function error(...message: any[]): void;
 
+    /**
+     * Log an informational message. Similar toapex.debug.message with the level set to `INFO`.
+     *
+     * @param message - Any number of parameters logged to the console.
+     */
     function info(...message: any[]): void;
 
+    /**
+     * Log a message. Similar to `apex.debug.message` with the level set to the highest level.
+     *
+     * @param message - Any number of parameters logged to the console.
+     */
     function log(...message: any[]): void;
 
+    /**
+     * Log a message at the given debug log level. The log level set from the server or with `apex.debug.setLevel`
+     * controls if the message is actually written. If the set log level is >= pLevel then the message is written.
+     * Messages are written using the browsers built-in console logging if available. Older browsers may not support the
+     * console object or all of its features.
+     *
+     * @param pLevel - A number from 1 to 9 where level 1 is most important and level 9 is least important. Can be one
+     *                 of the `LOG_LEVEL` constants. Any other value such as 0 will turn off debug logging.
+     * @param message - Any number of parameters logged to the console.
+     */
     function message(pLevel: number, ...message: any[]): void;
 
+    /**
+     * Log a trace message. Similar to `apex.debug.message` with the level set to `APP_TRACE`.
+     *
+     * @param message - Any number of parameters logged to the console.
+     */
     function trace(...message: any[]): void;
 
+    /**
+     * Log a warning message. Similar to `apex.debug.message` with the level set to `WARN`.
+     *
+     * @param message - Any number of parameters logged to the console.
+     */
     function warn(...message: any[]): void;
   }
 
@@ -427,6 +483,9 @@ declare namespace apex {
     function getScopedSessionStorage(pOption: StorageOptions): ScopedStorage;
   }
 
+  /**
+   * `apex.util namespace` contains general utility functions of Oracle Application Express.
+   */
   namespace util {
     let delayLinger: DelayLingerSingleton;
 
@@ -529,10 +588,11 @@ declare namespace apex {
      *                                     following pOptions properties table.
      */
     function applyTemplate(pTemplate: string, pOptions: TemplateOptions): string;
-
-
   }
 
+  /**
+   * The `apex.widget` namespace stores all the general purpose widget related functions of Oracle Application Express.
+   */
   namespace widget {
     interface Widget {
       interactiveGrid(pName: string): InteractiveGrid
