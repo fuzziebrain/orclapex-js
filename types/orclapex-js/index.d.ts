@@ -102,6 +102,11 @@ declare namespace apex {
       ENGINE_TRACE: number;
     }
 
+    /**
+     * Method that returns the debug log level. The debug log level is synchronized with hidden item "#pdebug".
+     *
+     * @returns { number }
+     */
     function getLevel(): number;
 
     function setLevel(pLevel: number): void;

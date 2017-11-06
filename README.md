@@ -35,7 +35,7 @@ $ npm init
 ```
 3. Install the package from Git:
 ```bash
-$ npm install --save-dev <GIT_URL>
+$ npm install --save-dev https://github.com/fuzziebrain/orclapex-js.git
 ```
 4. Create a `tsconfig.json` file in the project root folder, containing at minimum, the following configuration:
 ```json
