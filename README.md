@@ -27,6 +27,8 @@ To install TypeScript, run the following command after Node.js is installed:
 $ npm install -g typescript
 ```
 
+For Atom, please also install the [atom-typescript](https://atom.io/packages/atom-typescript) plugin.
+
 ## Getting Started
 1. Create the project folder.
 2. Initialise the project:
