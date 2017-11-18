@@ -390,16 +390,16 @@ declare namespace apex {
 
     interface PluginData {
       pageItems: string | JQuery | HTMLElement | Array<string>,
-      x01?: string,
-      x02?: string,
-      x03?: string,
-      x04?: string,
-      x05?: string,
-      x06?: string,
-      x07?: string,
-      x08?: string,
-      x09?: string,
-      x10?: string,
+      x01?: string | number,
+      x02?: string | number,
+      x03?: string | number,
+      x04?: string | number,
+      x05?: string | number,
+      x06?: string | number,
+      x07?: string | number,
+      x08?: string | number,
+      x09?: string | number,
+      x10?: string | number,
       f01?: string | Array<string | number>
       f02?: string | Array<string | number>
       f03?: string | Array<string | number>
@@ -435,7 +435,15 @@ declare namespace apex {
       loadingIndicator?: string | JQuery | HTMLElement | Function,
       loadingIndicatorPosition?: string,
       queue?: Queue,
-      target?: string | HTMLElement
+      success?: Function,
+      error?: Function,
+      beforeSend?: Function,
+      complete?: Function,
+      async?:boolean,
+      target?: string | HTMLElement,
+      cache?:boolean,
+      contents?:Object,
+      context?:Object
     }
 
     function loadScript(pConfig: ScriptConfig, pCallback: Function): Function;
