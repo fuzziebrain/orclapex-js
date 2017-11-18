@@ -446,7 +446,8 @@ declare namespace apex {
       context?: Object,
       contentType?: boolean | string,
       converters?: Object,
-      crossDomain?: boolean
+      crossDomain?: boolean,
+      dataFilter?: Function
     }
 
     function loadScript(pConfig: ScriptConfig, pCallback: Function): Function;
