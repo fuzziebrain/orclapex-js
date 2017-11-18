@@ -439,11 +439,15 @@ declare namespace apex {
       error?: Function,
       beforeSend?: Function,
       complete?: Function,
-      async?:boolean,
+      async?: boolean,
       target?: string | HTMLElement,
-      cache?:boolean,
-      contents?:Object,
-      context?:Object
+      cache?: boolean,
+      contents?: Object,
+      context?: Object,
+      contentType?: boolean | string,
+      converters?: Object,
+      crossDomain?: boolean,
+      data?: object | string | Array<any>
     }
 
     function loadScript(pConfig: ScriptConfig, pCallback: Function): Function;
