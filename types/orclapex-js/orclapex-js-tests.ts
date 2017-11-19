@@ -58,6 +58,7 @@ class Car implements server.Iperson {
 
     public callServer() {
         apex.page.confirm("Are you Sure?", "SUCCESS");
+        apex.confirm();
         apex.event.trigger('pSelector', 'pEvent', $x('pNd'))
 
     }
