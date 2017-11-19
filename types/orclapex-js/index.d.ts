@@ -14,7 +14,7 @@ declare namespace apex {
    * @param {string} pMessage
    * @param {string} pRequest
    */
-  function confirm(pMessage: string, pRequest: string): void;
+  function confirm(pMessage?: string, pRequest?: string): void;
 
   /**
    * apex.confirm Signature 2 (alias for apex.page.confirm)
@@ -389,7 +389,7 @@ declare namespace apex {
     }
 
     interface PluginData {
-      pageItems: string | JQuery | HTMLElement | Array<string>,
+      pageItems?: string | JQuery | HTMLElement | Array<string>,
       x01?: string | number,
       x02?: string | number,
       x03?: string | number,

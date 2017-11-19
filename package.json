@@ -7,7 +7,9 @@
   "author": "Adrian Png <adrian.png@fuzziebrain.com",
   "license": "MIT",
   "dependencies": {
-    "@types/jquery": "^3.2.16"
+    "@types/base-64": "^0.1.2",
+    "@types/jquery": "^3.2.16",
+    "jquery-confirm": "^3.3.2"
   },
   "devDependencies": {}
 }

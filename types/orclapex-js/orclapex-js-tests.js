@@ -1,4 +1,5 @@
 /// <reference path="index.d.ts" />
+/// <reference path="jquery_confirm.d.ts" />
 var Car = /** @class */ (function () {
     function Car(firstname, lastname) {
         this.firstname = firstname;
@@ -39,6 +40,8 @@ var Car = /** @class */ (function () {
             pageItems: "#P2300_LOV",
             x01: 1
         }, {
+            contents: document.body,
+            async: true,
             beforeSend: function () {
                 $body.addClass("loading");
                 $('<span class="vfr u-Processinga" role="alert" style="top: 252px; left: 720px;"><span class="vfr u-Processing-spinner"></span><span class="u-VisuallyHidden">Processing</span></span>').appendTo("body");
@@ -56,6 +59,29 @@ var Car = /** @class */ (function () {
             error: function (request, status, error) {
                 alert(request.responseText);
                 /* Remove the processing image */
+            }
+        });
+    };
+    Car.prototype.confirm = function () {
+        var $ = $s;
+        $.confirm({
+            title: 'Confirm!',
+            content: 'Simple confirm!',
+            buttons: {
+                confirm: function () {
+                    alert('Confirmed!');
+                },
+                cancel: function () {
+                    alert('Canceled!');
+                },
+                somethingElse: {
+                    text: 'Something else',
+                    btnClass: 'btn-blue',
+                    keys: ['enter', 'shift'],
+                    action: function () {
+                        alert('Something else?');
+                    }
+                }
             }
         });
     };

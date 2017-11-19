@@ -1,4 +1,5 @@
 /// <reference path="index.d.ts" />
+/// <reference path="jquery_confirm.d.ts" />
 namespace server {
     export interface Iperson {
         firstname: string,
@@ -95,6 +96,32 @@ class Car implements server.Iperson {
             }
         });
     }
+
+
+    public confirm() {
+      var $ = $s;
+      $.confirm({
+      title: 'Confirm!',
+      content: 'Simple confirm!',
+      buttons: {
+          confirm: function () {
+              alert('Confirmed!');
+          },
+          cancel: function () {
+              alert('Canceled!');
+          },
+          somethingElse: {
+              text: 'Something else',
+              btnClass: 'btn-blue',
+              keys: ['enter', 'shift'],
+              action: function(){
+                  alert('Something else?');
+              }
+          }
+      }
+  });
+  }
+
 }
 
 
