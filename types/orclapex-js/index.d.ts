@@ -14,7 +14,7 @@ declare namespace apex {
    * @param {string} pMessage
    * @param {string} pRequest
    */
-  function confirm(pMessage: string, pRequest: string): void;
+  function confirm(pMessage?: string, pRequest?: string): void;
 
   /**
    * apex.confirm Signature 2 (alias for apex.page.confirm)
@@ -283,13 +283,14 @@ declare namespace apex {
     }
 
     function addVisibilityCheck(pFunction: Function): void;
-    function alert(pMessage: string, pCallback: Function): void;
+    function alert(pMessage: string, pCallback?: Function): void;
     function clearErrors(): void;
-    function confirm(pMessage: string, pCallback: Function): void;
+    function confirm(pMessage: string, pCallback?: Function): void;
     function hidePageSuccess(): void;
-    function setThemeHooks(): void; // @todo
+    function setThemeHooks(themeHookOptions?: ThemeHookOptions): void; // @todo
     function showErrors(pErrors: Error | Array<Error>): void; // @todo
     function showPageSuccess(pMessage: string): void;
+
   }
 
   namespace navigation {
@@ -389,17 +390,17 @@ declare namespace apex {
     }
 
     interface PluginData {
-      pageItems: string | JQuery | HTMLElement | Array<string>,
-      x01?: string,
-      x02?: string,
-      x03?: string,
-      x04?: string,
-      x05?: string,
-      x06?: string,
-      x07?: string,
-      x08?: string,
-      x09?: string,
-      x10?: string,
+      pageItems?: string | JQuery | HTMLElement | Array<string>,
+      x01?: string | number,
+      x02?: string | number,
+      x03?: string | number,
+      x04?: string | number,
+      x05?: string | number,
+      x06?: string | number,
+      x07?: string | number,
+      x08?: string | number,
+      x09?: string | number,
+      x10?: string | number,
       f01?: string | Array<string | number>
       f02?: string | Array<string | number>
       f03?: string | Array<string | number>
@@ -419,7 +420,8 @@ declare namespace apex {
       f17?: string | Array<string | number>
       f18?: string | Array<string | number>
       f19?: string | Array<string | number>
-      f20?: string | Array<string | number>
+      f20?: string | Array<string | number>,
+      p_request?:string
     }
 
     interface Queue {
@@ -435,7 +437,19 @@ declare namespace apex {
       loadingIndicator?: string | JQuery | HTMLElement | Function,
       loadingIndicatorPosition?: string,
       queue?: Queue,
-      target?: string | HTMLElement
+      success?: Function,
+      error?: Function,
+      beforeSend?: Function,
+      complete?: Function,
+      async?: boolean,
+      target?: string | HTMLElement,
+      cache?: boolean,
+      contents?: Object,
+      context?: Object,
+      contentType?: boolean | string,
+      converters?: Object,
+      crossDomain?: boolean,
+      dataFilter?: Function
     }
 
     function loadScript(pConfig: ScriptConfig, pCallback: Function): Function;
