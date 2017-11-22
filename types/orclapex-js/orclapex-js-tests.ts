@@ -1,5 +1,4 @@
 /// <reference path="index.d.ts" />
-/// <reference path="jquery_confirm.d.ts" />
 namespace server {
     export interface Iperson {
         firstname: string,
@@ -71,13 +70,13 @@ class Car implements server.Iperson {
         }, {
           contents: document.body,
           async:true,
-            beforeSend: function() {
+            beforeSend: ()=> {
                 $body.addClass("loading");
                 $('<span class="vfr u-Processinga" role="alert" style="top: 252px; left: 720px;"><span class="vfr u-Processing-spinner"></span><span class="u-VisuallyHidden">Processing</span></span>').appendTo("body");
 
 
             },
-            success: function(pData:any) {
+            success: (pData:any)=> {
                 /* If the AJAX is successful set the value or the returned items */
                 if (pData.success === true) {
                     /* Loop through the array and set the value of each item */
@@ -89,7 +88,7 @@ class Car implements server.Iperson {
                 /* Remove the processing image */
 
             },
-            error: function(request:any, status:any, error:any) {
+            error: (request:any, status:any, error:any)=> {
                 alert(request.responseText);
 
                 /* Remove the processing image */
@@ -98,30 +97,35 @@ class Car implements server.Iperson {
         });
     }
 
+    public apexMessageAlert(){
+      apex.message.alert("Load complete");
+    }
 
-    public confirm() {
-      var $ = $s;
-      $.confirm({
-      title: 'Confirm!',
-      content: 'Simple confirm!',
-      buttons: {
-          confirm: function () {
-              alert('Confirmed!');
-          },
-          cancel: function () {
-              alert('Canceled!');
-          },
-          somethingElse: {
-              text: 'Something else',
-              btnClass: 'btn-blue',
-              keys: ['enter', 'shift'],
-              action: function(){
-                  alert('Something else?');
-              }
-          }
+    public apexMessageConfirm(){
+      apex.message.confirm( "Are you sure?", ( okPressed: string )=> {
+      if( okPressed ) {
+          console.log('delete');
       }
   });
-  }
+  apex.message.confirm( "Are you sure?");
+    }
+
+    public apexMessageSetThemeHooks(){
+      apex.message.setThemeHooks({
+    beforeShow: ( pMsgType: string, pElement$: HTMLSelectElement )=>{
+        if ( pMsgType === apex.message.TYPE.SUCCESS ) {
+            pElement$.addClass( "animate-msg" );
+        }
+    },
+    beforeHide: ( pMsgType:any, pElement$:any )=>{
+        if ( pMsgType === apex.message.TYPE.SUCCESS ) {
+            pElement$.removeClass( "animate-msg" );
+        }
+    }
+});
+
+    }
+
 
 }
 

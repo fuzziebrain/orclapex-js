@@ -283,13 +283,14 @@ declare namespace apex {
     }
 
     function addVisibilityCheck(pFunction: Function): void;
-    function alert(pMessage: string, pCallback: Function): void;
+    function alert(pMessage: string, pCallback?: Function): void;
     function clearErrors(): void;
-    function confirm(pMessage: string, pCallback: Function): void;
+    function confirm(pMessage: string, pCallback?: Function): void;
     function hidePageSuccess(): void;
-    function setThemeHooks(): void; // @todo
+    function setThemeHooks(themeHookOptions?: ThemeHookOptions): void; // @todo
     function showErrors(pErrors: Error | Array<Error>): void; // @todo
     function showPageSuccess(pMessage: string): void;
+
   }
 
   namespace navigation {
@@ -419,7 +420,8 @@ declare namespace apex {
       f17?: string | Array<string | number>
       f18?: string | Array<string | number>
       f19?: string | Array<string | number>
-      f20?: string | Array<string | number>
+      f20?: string | Array<string | number>,
+      p_request?:string
     }
 
     interface Queue {

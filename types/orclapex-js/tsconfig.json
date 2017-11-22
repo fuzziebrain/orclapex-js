@@ -18,7 +18,6 @@
   },
   "files": [
     "index.d.ts",
-    "orclapex-js-tests.ts",
-    "indexconfirm.d.ts"
+    "orclapex-js-tests.ts"
   ]
 }
